@@ -243,7 +243,7 @@ class MapDesign(object):
         meridian_labels = self.meridian_labels
         parallel_labels = self.parallel_labels
 
-        if self.projection is 'lcc':
+        if self.projection=='lcc':
             # Lambert conformal conic
             basemap = Basemap(llcrnrlon=self.mapcorners[0],
                               llcrnrlat=self.mapcorners[1],
@@ -257,7 +257,7 @@ class MapDesign(object):
                               resolution=self.resolution,
                               ax=ax)
 
-        elif self.projection is 'aea':
+        elif self.projection=='aea':
             # Albers equal area conic
             basemap = Basemap(llcrnrlon=self.mapcorners[0],
                               llcrnrlat=self.mapcorners[1],
@@ -272,7 +272,7 @@ class MapDesign(object):
                               resolution=self.resolution,
                               ax=ax)
 
-        elif self.projection is 'cea':
+        elif self.projection=='cea':
             # equal area cylindrical
             basemap = Basemap(llcrnrlon=self.mapcorners[0],
                               llcrnrlat=self.mapcorners[1],
@@ -283,7 +283,7 @@ class MapDesign(object):
                               resolution=self.resolution,
                               ax=ax)
 
-        elif self.projection is 'ortho':
+        elif self.projection=='ortho':
             # the earth
             basemap = Basemap(projection='ortho',
                               lon_0=self.standard_pm[0],
@@ -364,7 +364,7 @@ class MapDesign(object):
 
         # Map color defaults to white for ortho projection
         if self.mapcolor is not None:
-            if self.projection is not 'ortho':
+            if self.projection!='ortho':
                 colors = self.coloropts[self.mapcolor]
                 basemap.drawmapboundary(zorder=self.zmapbound,
                                         fill_color=colors['water'])
